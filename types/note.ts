@@ -14,9 +14,3 @@ export interface NewNoteData {
 }
 
 
-
-// export interface NotesResponse {
-//   data: Note[];
-//   total: number;
-//   // тут може бути paging, meta тощо
-// }
