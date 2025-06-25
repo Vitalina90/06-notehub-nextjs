@@ -1,19 +1,19 @@
-import css from './NoteModal.module.css'
-import NoteForm from '../NoteForm/NoteForm'
+import css from './NoteModal.module.css';
+import NoteForm from '../NoteForm/NoteForm';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 
 interface NoteModalProps {
   onClose: () => void;
-  onSuccess: () => void;
+  onSuccess?: () => void;
 }
 
-export default function NoteModal({onClose}: NoteModalProps) {
+export default function NoteModal({ onClose, onSuccess }: NoteModalProps) {
   const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
-   if (event.target === event.currentTarget) {
-     onClose();
-    } 
-   };
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -22,12 +22,12 @@ export default function NoteModal({onClose}: NoteModalProps) {
       }
     };
 
-    document.addEventListener("keydown", handleEsc);
-    document.body.style.overflow = "hidden";
+    document.addEventListener('keydown', handleEsc);
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.removeEventListener("keydown", handleEsc);
-      document.body.style.overflow = "";
+      document.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = '';
     };
   }, [onClose]);
 
@@ -39,10 +39,11 @@ export default function NoteModal({onClose}: NoteModalProps) {
       aria-modal="true"
     >
       <div className={css.modal}>
-       <NoteForm onClose={onClose}/>
+        <NoteForm onClose={onClose} onSuccess={onSuccess} />
       </div>
-      
-   </div>,
-   document.body
- );
+    </div>,
+    document.body
+  );
 }
+
+

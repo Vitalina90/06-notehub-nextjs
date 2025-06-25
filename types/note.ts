@@ -13,7 +13,10 @@ export interface NewNoteData {
   tag: string;
 }
 
-export type NotesResponse = {
-  notes: Note[];
-  totalPages: number;
-}
+
+
+// export interface NotesResponse {
+//   data: Note[];
+//   total: number;
+//   // тут може бути paging, meta тощо
+// }

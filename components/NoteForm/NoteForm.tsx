@@ -21,6 +21,7 @@ const initialValues: NoteFormValues = {
 
 interface NoteFormProps {
   onClose: () => void;
+  onSuccess?: () => void;
 }
 
 export default function NoteForm({onClose}: NoteFormProps) {

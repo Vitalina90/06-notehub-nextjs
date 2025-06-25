@@ -9,9 +9,14 @@ import NoteList from "@/components/NoteList/NoteList";
 import NoteModal from "@/components/NoteModal/NoteModal";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
-import type { NotesResponse } from "@/types/note";
+import type { Note } from "@/types/note";
 import css from "./NotesPage.module.css";
 
+
+type NotesResponse = {
+  notes: Note[];
+  totalPages: number;
+}
 
 type NotesClientProps = {
   initialPage: number;
